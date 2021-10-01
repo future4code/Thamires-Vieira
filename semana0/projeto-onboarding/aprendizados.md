@@ -1,0 +1,2 @@
+# Aprendizados da Semana
+Nessa primeira semana de aula na Labenu, tivemos uma grande imersão do que é o curso na Labeno, como serão nossas próximas 25 semanas e como organizar nossa rotina diária. Também vimos um poucosobre **Terminal**, **Git** e **GitHub**, ferramentas que iremos utilizar durante todo o curso. E pra finalizar, tivemos palastras de ex-estudantes da Labenu, nos explicando asdificuldades e métodos que tiverem que podem nos ajuda, além disso, uma palestra maravilhosa, sobre empregabilidade. Foi uma semana e tanto, com muito aprendizado e encorajamento!
