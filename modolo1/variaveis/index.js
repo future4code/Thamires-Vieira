@@ -21,7 +21,7 @@ let nome;
 let idade;
 
 console.log(typeof nome, typeof idade)
-//o resultado foi indefinido, pois não há valor atribuído, sendo assim, impoissivel definiro tipo de variável.
+//o resultado foi indefinido, pois não há valor atribuído, sendo assim, impossivel definiro tipo de variável.
 
 //1
 let nome = prompt("Qual é o seu nome?")
@@ -30,7 +30,7 @@ let idade = prompt("Qual é a sua idade?")
 console.log(typeof nome, typeof idade)
 // // string string
 
-console.log("Olá", nome,"," "você tem", idade, "anos.")
+console.log("Olá", nome,",", "você tem", idade, "anos.")
 
 //2-
 
