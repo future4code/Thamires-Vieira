@@ -1,5 +1,9 @@
 //Exercícios de interpretação de código
+<<<<<<< HEAD
 //FUNCAO - É UM TRECHO DE CÓDIGO QUE PODE SER CHAMADA ATRAVES DE SEU NOME
+=======
+//FUNCAO - É UM TRECCHO DE CÓDIGO QUE PODE SER CHAMADA ATRAVES DE SEU NOME
+>>>>>>> 9e80dba16d3cbabb9679e6f99b07ffc5f822b20e
 //1.
 //a)
 //    10
@@ -58,6 +62,7 @@
 //    console.log(resultado)
 
 //c.
+<<<<<<< HEAD
 // function verificarNumPar(num){
 //   const numeroPar = num % 2 === 0
 //   return numeroPar
@@ -70,6 +75,20 @@
 //     console.log("Tamanho da mensagem", tamanho) 
 //     console.log(mensagem.toUpperCase())
 //     }
+=======
+// function verificarNumPar(numero){
+//     const verficaPar = numero % 2 === 0
+//     return verificaPar
+//    }
+//    const resultado = verificarNumPar(4)
+//    console.log(resultado)
+
+//d. 
+// function imprimirMensagem(mensagem){
+//     console.log("Tamanho da mensagem", mensagem.lenght)
+//     console.log(mensagem.toUpperCase())
+//   }
+>>>>>>> 9e80dba16d3cbabb9679e6f99b07ffc5f822b20e
 //   imprimirMensagem("Olá, me chamo Thamires")
 
 
@@ -103,6 +122,7 @@
 //   return dividir
 // }
 // const resultadoDivisao = dividir(numero1, numero2)
+<<<<<<< HEAD
 // console.log(resultadoDivisao)
 
 //DESAFIO
@@ -129,3 +149,6 @@ function teoremaPitagoras(cateto1, cateto2){
     return hipAoQuadrado
 }
 console.log(teoremaPitagoras(2,4))
+=======
+// console.log(resultadoDivisao)
+>>>>>>> 9e80dba16d3cbabb9679e6f99b07ffc5f822b20e
