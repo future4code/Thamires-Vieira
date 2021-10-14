@@ -1,5 +1,9 @@
 //Exercícios de interpretação de código
+<<<<<<< HEAD
+//FUNCAO - É UM TRECHO DE CÓDIGO QUE PODE SER CHAMADA ATRAVES DE SEU NOME
+=======
 //FUNCAO - É UM TRECCHO DE CÓDIGO QUE PODE SER CHAMADA ATRAVES DE SEU NOME
+>>>>>>> 9e80dba16d3cbabb9679e6f99b07ffc5f822b20e
 //1.
 //a)
 //    10
@@ -58,6 +62,20 @@
 //    console.log(resultado)
 
 //c.
+<<<<<<< HEAD
+// function verificarNumPar(num){
+//   const numeroPar = num % 2 === 0
+//   return numeroPar
+// }
+// console.log(verificarNumPar(4))
+
+//d. 
+// function imprimirMensagem(mensagem){
+//     const tamanho = mensagem.length
+//     console.log("Tamanho da mensagem", tamanho) 
+//     console.log(mensagem.toUpperCase())
+//     }
+=======
 // function verificarNumPar(numero){
 //     const verficaPar = numero % 2 === 0
 //     return verificaPar
@@ -70,6 +88,7 @@
 //     console.log("Tamanho da mensagem", mensagem.lenght)
 //     console.log(mensagem.toUpperCase())
 //   }
+>>>>>>> 9e80dba16d3cbabb9679e6f99b07ffc5f822b20e
 //   imprimirMensagem("Olá, me chamo Thamires")
 
 
@@ -103,4 +122,33 @@
 //   return dividir
 // }
 // const resultadoDivisao = dividir(numero1, numero2)
+<<<<<<< HEAD
 // console.log(resultadoDivisao)
+
+//DESAFIO
+// 1)A.
+// const arrorFunction = (parametro1) => {
+// console.log(parametro1)
+//}
+//  
+//B.
+//const outraArrowFunction = (param1, param2) => {
+//  const soma = param1 + param2
+//  const resultado = soma
+//  console.log(resultado)
+// }
+// outraArrowFunction(2,4)
+//   
+// 2. Faça uma função que execute o teorema de Pitágoras, recebendo dois catetos e calculando o valor da hipotenusa. Retorne este valor, invoque a função e imprima o resultado no console. 
+//           
+//         A fórmula do teorema é: hip² = a² + b² , onde hip é a hipotenusa e a e b são os catetos. 
+//         É necessário isolar a hipotenusa, então ao final temos: **hip = √(a² + b²)**
+function teoremaPitagoras(cateto1, cateto2){
+    const hipotenusa = cateto1 + cateto2
+    const hipAoQuadrado = hipotenusa * hipotenusa
+    return hipAoQuadrado
+}
+console.log(teoremaPitagoras(2,4))
+=======
+// console.log(resultadoDivisao)
+>>>>>>> 9e80dba16d3cbabb9679e6f99b07ffc5f822b20e

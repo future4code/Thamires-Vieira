@@ -50,7 +50,7 @@ console.log(listaDeTarefas)
 const tarefaRealizada = prompt("Digite o índice de uma tarefa que você já realizou: 0, 1 ou 2:")    
 
 //e) Remova da lista o item de índice que o usuário escolheu.
-listaDeTarefas.splice(tarefaRealizada, 1)
+listaDeTarefas.splice(Number(tarefaRealizada), 1)
 
 //f) Imprima o array no console
 console.log(listaDeTarefas)
@@ -67,3 +67,10 @@ const abacaxi = "Abacaxi"
 const index = array.indexOf("Abacaxi")
 
 console.log(index, array.length)
+//OU
+const frutas = ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"];
+
+const indexAbabaxi = frutas.indexOf("Abacaxi");
+const tamanhoArray = frutas.length;
+
+console.log("Index abacaxi: ", indexAbabaxi, "tamanho do array:", tamanhoArray);
