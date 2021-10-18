@@ -98,12 +98,18 @@ function retornaSegundoMaiorESegundoMenor(array) {
 retornaSegundoMaiorESegundoMenor()
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-   
+    let chamada = "Venha assistir ao filme " + filme.nome + ", de " + filme.ano + ", dirigido por " + filme.diretor + " e estrelado por " + filme.elenco.join(',') 
+    return chamada
 }
-
+retornaChamadaDeFilme(filme)
+ 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-   
+   const novaPessoa ={
+       ...pessoa,
+       nome: "ANÔNIMO"
+   }
+   return novaPessoa
 }
 
 // EXERCÍCIO 13A
