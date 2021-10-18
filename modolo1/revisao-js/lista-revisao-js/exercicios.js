@@ -22,17 +22,22 @@ function retornaArrayOrdenado(array) {
 console.log(array)
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  for (var index = 0; index < array.length-1; index++){
-      if (index % 2 === 0){
-          return novoArray
-      }else{}
-
-  }
+ const numPar = array.filter((item)=>{
+     return item % 2 ===0
+ })
+ return numPar
 }
-console.log(novoArray)
+
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+ const numPar = array.filter((item)=>{
+    return item % 2 ===0
+ })
+
+ const numParElevado = numPar.map ((item) =>{
+     return item ** 2
+ })
+ return numParElevado
 }
 
 // EXERCÍCIO 06
