@@ -66,17 +66,14 @@ retornaObjetoEntreDoisNumeros()
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-    let i = 0
-    let array = []
-    while(i <= n){
-      if(i % 2 === 0){
-       return array.push(i)
-      }
-    i++ 
-    }
-    return array 
-  }
+ let pares = []
+ for (let i = 0; i < n; i++){
+     pares.push(i*2);
+ }
+return pares
+}
 retornaNPrimeirosPares()
+
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
     if (ladoA === ladoB && ladoA === ladoC && ladoB === ladoC){
