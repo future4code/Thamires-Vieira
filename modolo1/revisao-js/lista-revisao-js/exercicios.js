@@ -15,14 +15,21 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
+  return array.sort(function (a, b){
+      return a - b
+  })
 }
-
+console.log(array)
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
-}
+  for (var index = 0; index < array.length-1; index++){
+      if (index % 2 === 0){
+          return novoArray
+      }else{}
 
+  }
+}
+console.log(novoArray)
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
  
