@@ -53,17 +53,37 @@ function retornaMaiorNumero(array) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-
+    if (num1 > num2){
+        return maior = num1, menor = num2
+    } else {
+        maior = num2, menor = num1
+    }
+  return novoObj = {"maiorNumero": maior, "maiorDivisivelPorMenor": (maior % menor === 0), "diferenca": (maior - menor)}
 }
+retornaObjetoEntreDoisNumeros()
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-   
-}
-
+    let i = 0
+    let array = []
+    while(i <= n){
+      if(i % 2 === 0){
+       return array.push(i)
+      }
+    i++ 
+    }
+    console.log(array)  
+  }
+console.log(retornaNPrimeirosPares(n))
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-
+    if (ladoA === ladoB && ladoA === ladoC && ladoB === ladoC){
+        return "Equilátero"
+    } else if (ladoA !== ladoB && ladoA !== ladoC && ladoB !== ladoC){
+        return "Escaleno"
+    } else {
+        return "Isósceles"
+    }   
 }
 
 // EXERCÍCIO 10
