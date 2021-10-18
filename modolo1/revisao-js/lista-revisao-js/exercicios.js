@@ -53,12 +53,14 @@ function retornaMaiorNumero(array) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-    if (num1 > num2){
-        return maior = num1, menor = num2
+    if(num1 > num2){
+        return {"maiorNumero": num1, "maiorDivisivelPorMenor": num1 % num2 === 0, "diferenca": num1 - num2} 
+    }else if (num2 > num1) {
+        return {"maiorNumero": num2, "maiorDivisivelPorMenor": num2 % num1 === 0, "diferenca": num2 - num1} 
     } else {
-        maior = num2, menor = num1
+       return {"maiorNumero": num1, "maiorDivisivelPorMenor": num2 % num1 === 0, "diferenca": num2 - num1}
     }
-  return novoObj = {"maiorNumero": maior, "maiorDivisivelPorMenor": (maior % menor === 0), "diferenca": (maior - menor)}
+
 }
 retornaObjetoEntreDoisNumeros()
 
@@ -72,9 +74,9 @@ function retornaNPrimeirosPares(n) {
       }
     i++ 
     }
-    console.log(array)  
+    return array 
   }
-console.log(retornaNPrimeirosPares(n))
+retornaNPrimeirosPares()
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
     if (ladoA === ladoB && ladoA === ladoC && ladoB === ladoC){
