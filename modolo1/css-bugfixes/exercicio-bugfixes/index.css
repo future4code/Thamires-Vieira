@@ -133,6 +133,10 @@ td button {
     color: black;
 }
 
+#back-button:active{
+    color: white;
+}
+
 #back-button:hover {
     background-color: #635a3d
 }
