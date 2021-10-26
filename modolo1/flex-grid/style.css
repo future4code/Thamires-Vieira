@@ -1,0 +1,62 @@
+/* - Rosa escuro:  header footer `mediumvioletred`
+- Rosa claro: linha menu `#f2d0e0`
+- Sombra do card: `darkgray` */
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+header{
+    background-color:mediumvioletred;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between
+
+  
+    
+
+}
+button{
+    display: flex;
+    justify-self: end;
+    margin: 0 1130px;
+    
+}
+
+.icone{
+    width: 15px;
+    justify-content: space-between
+
+}
+
+.bolos{
+    width: 150px;
+}
+
+.menu{
+    border:solid black 2px;
+    background-color:#f2d0e0 ;
+   
+   
+  
+}
+
+div{
+    border: black solid 2px;
+    display: grid;
+    grid-column: 2 / span 3
+    
+   
+ 
+}
+
+footer{
+    background-color:mediumvioletred;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly
+    
+}
