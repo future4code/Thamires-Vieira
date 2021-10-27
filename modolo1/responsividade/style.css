@@ -44,18 +44,17 @@ nav{
 
 }
 
+
 /* ESTILIZAÇÃO DO FOOTER */
 
 footer{
-    display: flex;
-    align-items: center;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    text-align: center;
     background-color: rgb(173, 144, 141);
-    height: 40px;
-    margin: 100px 0px 0px 0px;
-}
-
-footer>p{
-    margin-left: 1%;
+    height: 20px;
+    margin: 0 auto;
 }
 
 /* ESTILIZAÇÃO DO LINK */
