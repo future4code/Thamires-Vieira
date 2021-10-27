@@ -22,6 +22,10 @@ header{
 
 }
 
+header>h2{
+    margin-left: 1%;
+}
+
 /* ESTILIZAÇÃO DO CORPO */
 
 img{
@@ -48,6 +52,10 @@ footer{
     background-color: rgb(173, 144, 141);
     height: 40px;
     margin: 100px 0px 0px 0px;
+}
+
+footer>p{
+    margin-left: 1%;
 }
 
 /* ESTILIZAÇÃO DO LINK */
