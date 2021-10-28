@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: rgb(253, 245, 235);
+    color: rgb(52, 92, 54);
+    margin: 0 0 3 0;
+}
+
+h1{
+    margin: 300px;
+    padding: 0px;
+    font-size: 100px;
+    text-align: center;
+}
+
+section{
+    margin: 20px;
+}
+
+p{
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+ul{
+    list-style-type: none;
+    line-height:2;
+    padding-left:0;
+}
+  
+a{
+    text-decoration: none;
+    color: #21700e;
+    font-weight: 700;
+}
+  
+.principal{
+    background-color: rgb(52, 92, 54);
+    height:60px;
+    max-width:100%;
+    top: 0;
+    text-align: center;
+    position: sticky;
+}
+  
+.principal a{
+    color:#FFF;
+    font-weight: normal;
+    font-size: 20px;
+}
+  
+.principal li{
+    display: inline-block;
+    line-height: 2.5;
+    margin:0 89px;
+}
+  
+button{
+    background-color: #205e20;
+    border: 1px solid transparent;
+    padding: 2 20;
+    border-radius: 3px;
+}
+
+#sobre-mim p{
+    text-align: center justify;
+} 
+
+img{
+    display: inline;
+    width: 250px;
+    margin: 10px ;
+    padding: 20px;
+}
+
+#projetos p{
+    text-align: center justify;   
+}
+
+#experiencias h3{
+    padding: 40px;
+}
+
+#experiencias p{
+    text-align: center justify; 
+    padding: 30px;
+}
+
+form, footer, h3{
+    margin: 20px;
+    text-decoration: solid;
+    
+}
+
+.redes img{
+    width: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+button :hover{
+    color: rgb(150, 172, 129);
+}
