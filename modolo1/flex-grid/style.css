@@ -1,0 +1,79 @@
+/* - Rosa escuro:  header footer `mediumvioletred`
+- Rosa claro: linha menu `#f2d0e0`
+- Sombra do card: `darkgray` */
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 60px 1fr 60px;
+    grid-template-columns: 300px 1fr;
+}
+
+header{
+    background-color:mediumvioletred;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 20;
+}
+
+header, footer{
+    grid-column: 1/-1;
+}
+
+.icone-e-texto{
+    display: flex;
+    align-items: center;
+}
+
+.icone{
+    width: 30px;
+    
+
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:mediumvioletred;
+    height: 60px;
+
+}
+
+nav{
+    background-color: #f2d8e0;
+    padding: 10px;
+}
+
+.botao-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bolos{
+    width: 100%;
+}
+
+.card-produto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    box-shadow: 2px 2px 5px;
+    text-align: center;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    
+}
