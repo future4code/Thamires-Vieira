@@ -31,13 +31,7 @@ export default class App extends React.Component {
         return <Final />
 
     }
-  }
 
-  // deletarBotao = () => {
-  //   if (this.state.etapa === Final){
-      
-  //   }
-  // }
  
   render(){
    return(
