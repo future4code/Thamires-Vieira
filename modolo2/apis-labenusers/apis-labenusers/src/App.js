@@ -1,115 +1,41 @@
-import './App.css';
-import axios from "axios";
 import React from 'react';
+import axios from "axios";
+import TelaCadastro from "./components/TelaCadastro";
+import TelaUsuarios from "./components/TelaUsuarios";
 
 class App extends React.Component {
 
   state = {
-   nome: "",
-   email: "",
-   listaDeUsuarios: [],
-   idUser: "",
-   usuario: {}
+   telaAtual:"cadastro"
   };
 
-  onChangeNome = (e) => {
-
-  };
-
-  onChangeEmail = (e) => {
-    this.setState({ inputValue: e.target.value });
-  };
-
-  onChangeId = (e) => {
-
-  }
-
-  createUser = () => {
-    const body = {
-      name: this.state.nome,
-      email: this.state.email
-    };
-    axios.post(
-        " https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-        body,
-        {
-          headers: {
-            Authorization: "thamires-lippelt-carver"
-          }
-        }
-      )
-      .then((res) => {
-        console.log(res.data)
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  };
-
-  getAllUsers = () => {
-    axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-      {
-        headers: {
-          Authorization: "thamires-lippelt-carver"
-        }
-      }
-    ).then((res) => {
-      console.log(res.data)
-      alert("Usuário criado com sucesso!")
-    }).cath((err) => {
-      console.log(err.reponse.data)
-      alert("Falha ao criar usuário, tente novamente.")
-    })
-  };
-
-  getUserById = () => {
-    axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${:id}",
-    {
-      headers: {
-        Authorization: "thamires-lippelt-carver"
-      }
-    }).then((res) => {
-      this.setState({usuario: res.data})
-    }).catch((err) =>{
-      console.log(err.response)
-    })
-  }
-
-  deleteUsers = () => {
-    axios.delete("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${:id}",
-    {
-      headers: {
-        Authorization: "thamires-lippelt-carver"
-      }
-    }).then((res) => {
-      this.setState({usuario: res.data})
-    }).catch((err) =>{
-      console.log(err.response)
-    })
-  }
-
+  escolheTela = () =>{
+    switch (this.state.telaAtual){
+      case "cadastro":
+        return <TelaCadastro irParaLista={this.irParaLista}/>
+      case "lista":
+        return <TelaUsuarios irParaCadastro={this.irParaCadastro}/>
+      default:
+        return <div>ERROR 404! Not Found!</div>
   
+    }
+  }
+
+  irParaCadastro = () => {
+    this.setState({telaAtual: "cadastro"})
+
+  }
+
+  irParaLista = () => {
+    this.setState({telaAtual: "lista"})
+  }
 
   render() {
-    // const usersList = this.state.users.map((user) => (
-    //   <li key={user.id}>{user.name}</li>
-    // ));
-
+    
     return (
-      <div className="App">
-        <button>Listas</button>
-
-        <input
-          placeholder="Nome"
-          value={this.state.nome}
-          onChange={this.onChangeNome}
-        />
-       <input
-          placeholder="Email"
-          value={this.state.email}
-          onChange={this.onChangeEmail} />
-        <button onClick={this.createUser}>Salvar</button>
-        {/* <ul>{usersList}</ul> */}
+      <div>
+        {this.escolheTela()}
+        
       </div>
     )
   }
