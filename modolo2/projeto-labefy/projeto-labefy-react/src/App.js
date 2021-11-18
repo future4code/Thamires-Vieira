@@ -4,7 +4,7 @@ import Playlist from "./components/Playlist"
 
 class App extends React.Component {
 
-  estado = {
+  state = {
     telaAtual: "add musicas"
   };
 
@@ -13,7 +13,7 @@ class App extends React.Component {
       case "add musicas":
         return <AddMusics irParaAddMusics={this.irParaAddMusics} />
       case "playlist":
-        return <Playlist irParaPlaylist={irParaPlaylist} />
+        return <Playlist irParaPlaylist={this.irParaPlaylist} />
       default:
         return <div> ERROR 404! Página não encontrada! </div>
 
