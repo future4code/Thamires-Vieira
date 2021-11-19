@@ -11,6 +11,21 @@ const CardPlaylist = styled.div`
     display: flex;
     justify-content: space-between;
 `
+const Botao = styled.button`
+cursor: pointer;
+  background: transparent;
+  font-size: 16px;
+  border-radius: 3px;
+  color: white;
+  border: 2px solid palevioletred;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  transition: 0.5s all ease-out;
+  &:hover {
+    background-color: palevioletred;
+    color: white;
+  }
+`
 
 export default class Playlist extends React.Component {
 
@@ -42,7 +57,20 @@ export default class Playlist extends React.Component {
         })
     }
 
-    fetchPlaylists = () => {
+    escolheTela = () => {
+        switch (this.state.paginaAtual) {
+            case "addMusicas":
+                return <AddMusicas irParaMusicas={this.irParaMusicas} />
+            default:
+                return <div>ERROR 404! Not Found!</div>
+        }
+    }
+
+    irParaMusicas = () => {
+        this.setState({ telaAtual: "musicas" }) 
+    }
+
+    getPlaylists = () => {
         axios
             .get("https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
                 {
@@ -70,7 +98,7 @@ export default class Playlist extends React.Component {
                     })
                 .then(() => {
                     alert("Playlist deletada!");
-                    this.fetchPlaylists();
+                    this.getPlaylists();
                 })
                 .catch((erro) => {
                     alert("Erro ao deletar Playlist");
@@ -79,16 +107,7 @@ export default class Playlist extends React.Component {
         }
     }
 
-    mudarParaMusicas = (listId) => {
-        if (this.state.paginaAtual === "playlists") {
-            this.setState({
-                paginaAtual: "adicionarMusicas",
-                listId: listId
-            });
-        } else {
-            this.setState({paginaAtual:"playlists",listId: ""});
-        }
-    };
+
 
     render() {
         console.log(this.state.playlists)
@@ -96,17 +115,18 @@ export default class Playlist extends React.Component {
             return (
                 <CardPlaylist key={list.id}>
                     {list.name}
-                    <button onClick={() => this.deletarPlaylist(list.id)}>X</button>
+                    <Botao onClick={this.irParaMusicas}>...</Botao>
+                    <Botao onClick={() => this.deletarPlaylist(list.id)}>Deletar</Botao>
                 </CardPlaylist>
             )
         })
 
         return (
             <div>
-                <button onClick={this.props.irParaCriar}>Voltar</button>
+                <Botao onClick={this.props.irParaCriar}>Voltar</Botao>
                 <h2>{this.state.titulo}</h2>
-                {listaDePlaylist}
-                <AddMusicas listId={this.state.id} mudarParaMusicas={this.mudarParaMusicas} />
+                <h4>{listaDePlaylist}</h4>
+                <AddMusicas></AddMusicas>
             </div>
         )
     }

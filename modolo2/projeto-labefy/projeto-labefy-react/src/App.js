@@ -3,6 +3,7 @@ import styled from "styled-components"
 import CriarPlaylist from "./components/CriarPlaylist"
 import Playlist from "./components/Playlist"
 import Logo from "./components/img/logocolorido.png"
+import AddMusicas from "./components/AdicionarMusicas";
 
 const AppConteiner = styled.div`
   background-color: gray;
@@ -51,6 +52,8 @@ class App extends React.Component {
         return <CriarPlaylist irParaLista={this.irParaLista} />
       case "lista":
         return <Playlist irParaCriar={this.irParaCriar} />
+      case "musicas":
+        return <AddMusicas irParaMusicas={this.irParaMusicas} />
       default:
         return <div>ERROR 404! Not Found!</div>
 
@@ -66,6 +69,12 @@ class App extends React.Component {
     this.setState({ telaAtual: "lista" })
   }
 
+  irParaMusicas = () => {
+    this.setState({ telaAtual: "musicas" })
+  }
+  
+  
+
   render() {
 
     return (
@@ -74,7 +83,7 @@ class App extends React.Component {
           <ImagemLateral src={Logo} alt="logo" />
           <strog>Labefy</strog>
         </Header>
-        <hr/>
+        <hr />
         {this.escolheTela()}
 
         <Footers>Labefy - Todos os direitos reservados</Footers>

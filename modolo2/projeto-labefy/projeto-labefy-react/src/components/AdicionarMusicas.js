@@ -2,6 +2,22 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components"
 
+const Botao = styled.button`
+cursor: pointer;
+  background: transparent;
+  font-size: 16px;
+  border-radius: 3px;
+  color: white;
+  border: 2px solid palevioletred;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  transition: 0.5s all ease-out;
+  &:hover {
+    background-color: palevioletred;
+    color: white;
+  }
+`
+
 export default class AddMusicas extends React.Component {
 
     state = {
@@ -105,7 +121,7 @@ export default class AddMusicas extends React.Component {
                     value={this.state.url}
                     onChange={this.urlDaMusica}
                 />
-                <button onClick={this.addNaPlaylist}>Adicionar</button>
+                <Botao onClick={this.addNaPlaylist}>Adicionar</Botao>
             </div>)
     }
 }
