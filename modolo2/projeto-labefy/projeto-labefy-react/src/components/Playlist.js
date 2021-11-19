@@ -65,22 +65,22 @@ export default class Playlist extends React.Component {
     }
 
     
-    // getPlaylists = () => {
-    //     axios
-    //         .get("https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
-    //             {
-    //                 headers: {
-    //                     Authorization: "thamires-lippelt-carver"
-    //                 }
-    //             })
-    //         .then((response) => {
-    //             this.setState({ playlists: response.data.result.list });
-    //             // console.log(response);
-    //         })
-    //         .catch((error) => {
-    //             console.log(error.message);
-    //         });
-    // };
+    getPlaylists = () => {
+        axios
+            .get("https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+                {
+                    headers: {
+                        Authorization: "thamires-lippelt-carver"
+                    }
+                })
+            .then((response) => {
+                this.setState({ playlists: response.data.result.list });
+                // console.log(response);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
+    };
 
     deletarPlaylist = (listId) => {
         if (window.confirm("Você tem certeza que deseja deletar esta Playlist?")) {
@@ -93,7 +93,7 @@ export default class Playlist extends React.Component {
                     })
                 .then(() => {
                     alert("Playlist deletada!");
-                    this.pegarPlaylist();
+                    this.getPlaylists();
                 })
                 .catch((erro) => {
                     alert("Erro ao deletar Playlist");
