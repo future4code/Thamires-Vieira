@@ -57,7 +57,7 @@ export default class CriarPlaylist extends React.Component {
             <AddConteiner>
                 <Title>Bem vindx ao Labefy!</Title>
                 <h2>Cadastrar Playlist</h2>
-                <p>Digite abaixo o nome da Playlist que deseja criar:</p>
+                <p>Digite abaixo o nome da Playlist que deseja cadastrar:</p>
                 <input
                     placeholder="Nome"
                     value={this.state.name}
@@ -65,9 +65,9 @@ export default class CriarPlaylist extends React.Component {
                 />
                 <button onClick={this.cadastrar}>Cadastrar</button>
 
-                <p>Quer ver sua lista de Playlists já criadas? Clique no botão abaixo:</p>
+                <p>Quer ver sua lista de Playlists já cadastradas? Clique no botão abaixo:</p>
                 <button onClick={this.props.irParaLista}>Lista De Playlists</button>
-
+                
             </AddConteiner>
         )
     }
