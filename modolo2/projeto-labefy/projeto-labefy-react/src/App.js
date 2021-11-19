@@ -1,44 +1,86 @@
-import React from "react"
-import AddMusics from "./components/AddMusics";
+import React from "react";
+import styled from "styled-components"
+import CriarPlaylist from "./components/CriarPlaylist"
 import Playlist from "./components/Playlist"
+import Logo from "./components/img/logocolorido.png"
+
+const AppConteiner = styled.div`
+  background-color: gray;
+  color: white;
+  margin: 0;
+`;
+
+const Header = styled.header`
+  background-color: white;
+  text-align: center;
+  color: black;
+  font-family: inherit;
+  font-size: 40px;
+  padding-left: 5%;
+`
+
+const Footers = styled.footer`
+  display: flex;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 99%;
+  height: 20%;
+  padding-bottom: 0;
+  margin: 0;
+`;
+
+const ImagemLateral = styled.img`
+  width: 5%;
+  margin-top: 5px;
+`
+
+// const urlGetAll = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
+// const urlPostCrate = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
+// const urlDel = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId"
 
 class App extends React.Component {
-
   state = {
-    telaAtual: "add musicas"
+    telaAtual: "criar"
   };
 
   escolheTela = () => {
     switch (this.state.telaAtual) {
-      case "add musicas":
-        return <AddMusics irParaAddMusics={this.irParaAddMusics} />
-      case "playlist":
-        return <Playlist irParaPlaylist={this.irParaPlaylist} />
+      case "criar":
+        return <CriarPlaylist irParaLista={this.irParaLista} />
+      case "lista":
+        return <Playlist irParaCriar={this.irParaCriar} />
       default:
-        return <div> ERROR 404! Página não encontrada! </div>
+        return <div>ERROR 404! Not Found!</div>
 
     }
   }
 
-  irParaAddMusics =() =>{
-    this.setState({telaAtual:"add musicas"})
+  irParaCriar = () => {
+    this.setState({ telaAtual: "criar" })
+
   }
 
-  irParaPlaylist =() =>{
-    this.setState({telaAtual:"playlist"})
+  irParaLista = () => {
+    this.setState({ telaAtual: "lista" })
   }
-
 
   render() {
 
     return (
-      <div>
+      <AppConteiner>
+        <Header>
+          <ImagemLateral src={Logo} alt="logo" />
+          <strog>Labefy</strog>
+        </Header>
+        <hr/>
         {this.escolheTela()}
 
-      </div>
+        <Footers>Labefy - Todos os direitos reservados</Footers>
+      </AppConteiner>
     )
   }
 }
-
 
 export default App;
