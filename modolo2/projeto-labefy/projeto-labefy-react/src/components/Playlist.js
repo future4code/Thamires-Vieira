@@ -93,7 +93,7 @@ export default class Playlist extends React.Component {
                     })
                 .then(() => {
                     alert("Playlist deletada!");
-                    this.getPlaylists();
+                    this.pegarPlaylist();
                 })
                 .catch((erro) => {
                     alert("Erro ao deletar Playlist");
