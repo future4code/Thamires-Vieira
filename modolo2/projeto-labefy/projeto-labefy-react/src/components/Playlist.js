@@ -4,13 +4,19 @@ import styled from "styled-components";
 import AddMusicas from "./AdicionarMusicas";
 
 const CardPlaylist = styled.div`
-    border: 1px solid gray;
     padding: 10px;
     margin: 10px;
-    width: 300px;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
+    align-items: center;
+    border: solid white 2px;
 `
+
+const DivPlaylist = styled.div`
+    padding: 10px;
+    margin: 10px;
+`
+
 const Botao = styled.button`
 cursor: pointer;
   background: transparent;
@@ -31,6 +37,7 @@ export default class Playlist extends React.Component {
 
     state = {
         playlists: [],
+        detalhesPlaylist: [],
         titulo: "Suas Playlists:",
         paginaAtual: "playlist",
         id: "",
@@ -57,35 +64,23 @@ export default class Playlist extends React.Component {
         })
     }
 
-    escolheTela = () => {
-        switch (this.state.paginaAtual) {
-            case "addMusicas":
-                return <AddMusicas irParaMusicas={this.irParaMusicas} />
-            default:
-                return <div>ERROR 404! Not Found!</div>
-        }
-    }
-
-    irParaMusicas = () => {
-        this.setState({ telaAtual: "musicas" }) 
-    }
-
-    getPlaylists = () => {
-        axios
-            .get("https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
-                {
-                    headers: {
-                        Authorization: "thamires-lippelt-carver"
-                    }
-                })
-            .then((response) => {
-                this.setState({ playlists: response.data.result.list });
-                // console.log(response);
-            })
-            .catch((error) => {
-                console.log(error.message);
-            });
-    };
+    
+    // getPlaylists = () => {
+    //     axios
+    //         .get("https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+    //             {
+    //                 headers: {
+    //                     Authorization: "thamires-lippelt-carver"
+    //                 }
+    //             })
+    //         .then((response) => {
+    //             this.setState({ playlists: response.data.result.list });
+    //             // console.log(response);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error.message);
+    //         });
+    // };
 
     deletarPlaylist = (listId) => {
         if (window.confirm("Você tem certeza que deseja deletar esta Playlist?")) {
@@ -107,6 +102,21 @@ export default class Playlist extends React.Component {
         }
     }
 
+    pegarDetalhesPlaylist = (listId) => {
+        axios
+            .get(
+                `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${listId}/tracks`, {
+                headers: {
+                    Authorization: "thamires-lippelt-carver"
+                }
+            })
+            .then((response) => {
+                this.setState({ detalhesPlaylist: response.data.result.tracks });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
 
 
     render() {
@@ -115,19 +125,29 @@ export default class Playlist extends React.Component {
             return (
                 <CardPlaylist key={list.id}>
                     {list.name}
-                    <Botao onClick={this.irParaMusicas}>...</Botao>
                     <Botao onClick={() => this.deletarPlaylist(list.id)}>Deletar</Botao>
                 </CardPlaylist>
             )
         })
+        const detalhes = this.state.detalhesPlaylist.map((playlist) => {
+            return (
+                <div key={playlist.id}
+                    name={playlist.name}
+                    artist={playlist.artist}
+                    url={playlist.url}
+                />
+
+            )
+        });
 
         return (
-            <div>
+            <DivPlaylist>
                 <Botao onClick={this.props.irParaCriar}>Voltar</Botao>
                 <h2>{this.state.titulo}</h2>
                 <h4>{listaDePlaylist}</h4>
+                <p>{detalhes}</p>
                 <AddMusicas></AddMusicas>
-            </div>
+            </DivPlaylist>
         )
     }
 }

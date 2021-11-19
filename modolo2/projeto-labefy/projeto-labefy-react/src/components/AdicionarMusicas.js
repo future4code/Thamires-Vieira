@@ -2,6 +2,14 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components"
 
+const CardMusicas = styled.div`
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction:column;
+    width: 300px;
+`
+
 const Botao = styled.button`
 cursor: pointer;
   background: transparent;
@@ -26,67 +34,50 @@ export default class AddMusicas extends React.Component {
         artist: "",
         url: ""
     };
-    componentDidMount() {
-        this.pegarDetalhesPlaylist();
-    }
-
-    pegarDetalhesPlaylist = (id) => {
-        axios
-            .get(
-                `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.id}/tracks`, {
-                headers: {
-                    Authorization: "thamires-lippelt-carver"
-                }
-            })
-            .then((response) => {
-                this.setState({detalhesPlaylist:response.data.result.tracks});
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
 
     addNome = (event) => {
         const nomeDaMusica = event.target.value;
-        this.setState({name: nomeDaMusica});
+        this.setState({ name: nomeDaMusica });
     };
 
     addArtista = (event) => {
         const nomeDoArtista = event.target.value;
-        this.setState({artist: nomeDoArtista});
+        this.setState({ artist: nomeDoArtista });
     };
 
     urlDaMusica = (event) => {
         const novaUrl = event.target.value;
-        this.setState({url: novaUrl});
+        this.setState({ url: novaUrl });
     };
 
-    addNaPlaylist = (listId) => {
+
+
+    addMusicaNaPlaylist = (listId) => {
         const body = {
             name: this.state.name,
             artist: this.state.artist,
             url: this.state.url
-        };
+        }
 
-        axios
-            .post(
-                `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.id}/tracks`,
-                body, {
+        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.listId}/tracks`, body,
+            {
                 headers: {
-                    Authorization: "thamires-lippelt-carver"
+                    Authorization: 'thamires-lippelt-carver'
                 }
             })
-            .then((response) => {
-                this.setState({name:"", artist:"", url:""});
-                this.pegarDetalhesPlaylist();
-                alert("Musica adicionada");
-                console.log(response);
+            .then((res) => {
+                this.setState({name: ""});
+                this.setState({artist: ""});
+                this.setState({url: ""});
+                alert('Música adicionada!')
             })
-            .catch((error) => {
-                alert("Erro ao adicionar música. Verifique se as informações estão corretas.");
-                console.log(error.message);
-            });
-    };
+            .catch((err) => {
+                console.log(err.message);
+                alert('Não foi possível adicionar a música, verifique as informações.')
+            })
+    }
+
+
 
     render() {
         const detalhes = this.state.detalhesPlaylist.map((playlist) => {
@@ -100,29 +91,17 @@ export default class AddMusicas extends React.Component {
             )
         });
         return (
-            <div>
-                <p>{detalhes}</p>
+            <CardMusicas>
                 <p>Adicione mais músicas a Playlist:</p>
-                <input
-                    placeholder="Nome da música"
-                    type="text"
-                    value={this.state.name}
-                    onChange={this.addNome}
-                />
-                <input
-                    placeholder="Nome do Artista"
-                    type="text"
-                    value={this.state.artist}
-                    onChange={this.addArtista}
-                />
-                <input
-                    placeholder="Endereço"
-                    type="text"
-                    value={this.state.url}
-                    onChange={this.urlDaMusica}
-                />
-                <Botao onClick={this.addNaPlaylist}>Adicionar</Botao>
-            </div>)
+                <label><b>Título</b></label>
+                <input value={this.state.name} onChange={this.addNome}></input>
+                <label><b>Artista</b></label>
+                <input value={this.state.artist} onChange={this.addArtista}></input>
+                <label><b>URL:</b></label>
+                <input value={this.state.url} onChange={this.urlDaMusica}></input>
+                <Botao onClick={this.addMusicaNaPlaylist}>Adicionar</Botao>
+            </CardMusicas>)
     }
 }
+
 
