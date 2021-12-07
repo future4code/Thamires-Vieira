@@ -9,12 +9,12 @@ const CreateTripPage = () => {
     const goToAdminHomePage = (history) => {
         history.push("/admin/trips/list")
     }
-    
+
     return (
         <div>
-            <p>
+            <h1>
                 Criar Viagem
-            </p>
+            </h1>
             <button onClick={() => goToAdminHomePage(history)}>Voltar</button>
             <button type={"submit"}>Criar</button>
         </div>

@@ -15,9 +15,9 @@ const ListTripsPage = () => {
 
     return (
         <div>
-            <p>
+            <h1>
                 Lista De Viagens
-            </p>
+            </h1>
             <button onClick={() => goToHomePage(history)}>Voltar</button>
             <button onClick={() => goToApplicationFormPage(history)}>Inscrever-se</button>
         </div>

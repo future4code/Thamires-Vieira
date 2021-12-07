@@ -13,9 +13,9 @@ const AdminHomePage = () => {
 
     return (
         <div>
-            <p>
+            <h1>
                 Painel Admin
-            </p>
+            </h1>
             <button onClick={() => goToHomePage(history)}>Voltar</button>
             <button onClick={() => goToCreateTripPage(history)}>Criar Viagem</button>
             <button onClick>Logout</button>

@@ -9,9 +9,9 @@ const TripDetailsPage = () => {
     }
     return (
         <div>
-            <p>
+            <h1>
                 Detalhes da Viagem
-            </p>
+            </h1>
             <button onClick={() => goToAdminHomePage(history)}>Voltar</button>
         </div>
     );

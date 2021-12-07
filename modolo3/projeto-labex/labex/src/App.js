@@ -1,6 +1,7 @@
 import React from "react"
 import { Switch } from "react-router"
 import { BrowserRouter, Route } from "react-router-dom"
+import GlobalStyle from "./GlobalStyle"
 import AdminHomePage from "./Pages/AdminHomePage"
 import ApplicationFormPage from "./Pages/ApplicationFormPage"
 import CreateTripPage from "./Pages/CreateTripPage"
@@ -12,6 +13,7 @@ import TripDetailsPage from "./Pages/TripDetailsPage"
 const App = () => {
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <Switch>
         <Route exact path={"/"}>
           <HomePage />
@@ -39,6 +41,7 @@ const App = () => {
         </Route>
       </Switch>
     </BrowserRouter>
+
   )
 }
 
