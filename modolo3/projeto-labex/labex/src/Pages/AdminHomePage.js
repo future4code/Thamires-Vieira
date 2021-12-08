@@ -1,7 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { ProtectedPage } from "../hooks/ProtectedPage";
 
 const AdminHomePage = () => {
+    ProtectedPage();
+    
     const history = useHistory();
 
     const goToHomePage = (history) => {
