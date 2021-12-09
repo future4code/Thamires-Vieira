@@ -5,8 +5,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: #eb9234;
     margin: 30px 0;
     padding: 0;
-    width: 100vw;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

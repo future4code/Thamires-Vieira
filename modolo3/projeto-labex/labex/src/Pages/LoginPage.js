@@ -60,12 +60,9 @@ const LoginPage = () => {
                     onChange={onChangePassword}
                     required
                 />
-
-                <button onClick={() => goToHomePage(history)}>Voltar</button>
-                <button type={"submit"} onClick={onSubmitLogin}>Entrar</button>
-
-
             </form>
+            <button onClick={() => goToHomePage(history)}>Voltar</button>
+            <button type={"submit"} onClick={onSubmitLogin}>Entrar</button>
         </div>
     )
 }
