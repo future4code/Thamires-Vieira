@@ -32,10 +32,18 @@ const ListTripsPage = () => {
     }, [])
 
     const tripsList = listTrip.map((trip) => {
-        return <div key={trip.id} trip={trip} />
+        return (
+        <div key={trip.id} trip={trip}>
+            <p>{trip.name}</p>
+            <p>{trip.description}</p>
+            <p>Planeta: {trip.planet}</p>
+            <p>Data: {trip.date}</p>
+            <p>Quantos dias: {trip.durationInDays}</p>
+        </div>
+        )
     })
 
-
+    console.log (tripsList)
     return (
         <div>
             <h1>
@@ -43,7 +51,7 @@ const ListTripsPage = () => {
                 {tripsList && tripsList.length > 0 ? tripsList : <p>Carregando...</p>}
             </h1>
             <button onClick={() => goToHomePage(history)}>Voltar</button>
-            <button onClick={() => goToApplicationFormPage(history)}>Inscrever-se</button>
+            <button onClick={() => goToApplicationFormPage(history)}>Inscrever</button>
         </div>
     );
 }
