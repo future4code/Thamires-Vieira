@@ -1,9 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { ProtectedPage } from "../hooks/ProtectedPage";
+import { useProtectedPage } from "../hooks/ProtectedPage";
 
 const AdminHomePage = () => {
-    ProtectedPage();
+    useProtectedPage();
     
     const history = useHistory();
 
@@ -17,7 +17,7 @@ const AdminHomePage = () => {
     return (
         <div>
             <h1>
-                Painel Admin
+                Painel Administrativo
             </h1>
             <button onClick={() => goToHomePage(history)}>Voltar</button>
             <button onClick={() => goToCreateTripPage(history)}>Criar Viagem</button>

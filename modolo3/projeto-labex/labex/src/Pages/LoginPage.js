@@ -30,7 +30,7 @@ const LoginPage = () => {
             "password": password
         };
 
-        axios.post(`${BASE_URL}login`, body)
+        axios.post(`${BASE_URL}/login`, body)
             .then((res) => {
                 localStorage.setItem("token", res.data.token)
                 history.push("/admin/trips/list")

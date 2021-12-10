@@ -1,17 +1,23 @@
 import { createGlobalStyle } from 'styled-components'
 
+
+
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #eb9234;
-    margin: 30px 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-image: url('https://img.elo7.com.br/product/original/1E349C7/papel-de-parede-3d-universo-0007-papel-de-parede-autocolante.jpg');
+  display: flex;
+  flex-direction: column;
+  color: white;
+  height: 100vh;
+  align-items: center;
+  font-family: Poppins, sans-serif;
+  font-weight: 300;
+  margin: 100px;
   }
 
   button {
     margin-bottom: 15px;
+    margin-right: 50px;
     height: 40px;
     padding: 0 20px;
     border-radius: 20px;

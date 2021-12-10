@@ -1,62 +1,32 @@
-import axios from 'axios';
 import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import { BASE_URL } from '../constants/url'
-import { useState, useEffect } from 'react'
-import { ProtectedPage } from '../hooks/ProtectedPage';
+import { useEffect } from 'react'
+import { useProtectedPage } from '../hooks/ProtectedPage';
+import { getTripDetail } from '../components/api_list';
 
 
 const TripDetailsPage = () => {
 
-    ProtectedPage();
+    useProtectedPage()
 
-    const { id } = useParams();
-    const [trip, setTrip] = useState({});
-    const history = useHistory();
+    const history = useHistory()
+    const pathParams = useParams()
 
-    const goToAdminHomePage = (history) => {
-        history.push("/admin/trips/list")
-    }
-
-    const getTripDetail = () => {
-        const token = localStorage.getItem("token");
-        axios
-            .get(`${BASE_URL}trip/${id}`,
-                {
-                    headers: {
-                        auth: token
-                    }
-                }
-            )
-            .then((res) => {
-                setTrip(res.data.trip);
-            })
-            .catch((error) => {
-                console.log("Deu erro: ", error.response);
-            });
-
+    const goBack = () => {
+        history.goBack()
     }
 
     useEffect(() => {
-        getTripDetail();
+        getTripDetail(pathParams.id)
     }, [])
-
 
     return (
         <div>
-
-            <h1>
-                Detalhes da Viagem
-            </h1>
-            <p>Nome da viagem:  {trip.name}</p>
-            <p>Descricao:  {trip.description}</p>
-            <p>Planeta:  {trip.planet}</p>
-            <p>Duração:  {trip.durationInDays} dias</p>
-            <p>Data:  {trip.date}</p>
-            <button onClick={() => goToAdminHomePage(history)}>Voltar</button>
-
+            Detalhes da Viagem
+            ID da viagem: {pathParams.id}
+            <button onClick={goBack}>Voltar</button>
         </div>
-    );
+    )
 }
 
 export default TripDetailsPage;

@@ -1,59 +1,47 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { BASE_URL } from "../constants/url";
+import { getTrips } from "../components/api_list";
+import TripCard from "../components/TripCard";
 
 
 const ListTripsPage = () => {
-    const history = useHistory();
-    const [listTrip, setListTrip] = useState([])
+    const history = useHistory()
+    const [trips, setTrips] = useState([])
 
-    const goToHomePage = (history) => {
-        history.push("/")
+    const goBack = () => {
+        history.goBack()
     }
 
-    const goToApplicationFormPage = (history) => {
+    const goToApplication = (id) => {
         history.push("/trips/application")
     }
 
-    const getTripList = () => {
-        axios.get(`${BASE_URL}trips`)
-            .then((res) => {
-                setListTrip(res.data.trips)
-            })
-            .catch((err) => {
-                console.log("erro", err);
-            });
-
-    }
-
     useEffect(() => {
-        getTripList();
+        getTrips(setTrips)
     }, [])
 
-    const tripsList = listTrip.map((trip) => {
+    const listTrips = trips.map((trip) => {
         return (
-        <div key={trip.id} trip={trip}>
-            <p>{trip.name}</p>
-            <p>{trip.description}</p>
-            <p>Planeta: {trip.planet}</p>
-            <p>Data: {trip.date}</p>
-            <p>Quantos dias: {trip.durationInDays}</p>
-        </div>
+            <TripCard 
+                key={trip.id}
+                date={trip.date}
+                description={trip.description}
+                duration={trip.durationInDays}
+                name={trip.name}
+                planet={trip.planet}
+            />
         )
     })
 
-    console.log (tripsList)
+
     return (
         <div>
-            <h1>
-                Lista De Viagens
-                {tripsList && tripsList.length > 0 ? tripsList : <p>Carregando...</p>}
-            </h1>
-            <button onClick={() => goToHomePage(history)}>Voltar</button>
-            <button onClick={() => goToApplicationFormPage(history)}>Inscrever</button>
+            <h2>Viagens disponíveis:</h2>
+            <button onClick={goBack}>Voltar</button>
+            <button onClick={() => goToApplication()}>Inscrever-se</button>
+            {listTrips && listTrips.length > 0 ? listTrips : <p>Carregando...</p>}
         </div>
-    );
+    )
 }
 
 export default ListTripsPage;
