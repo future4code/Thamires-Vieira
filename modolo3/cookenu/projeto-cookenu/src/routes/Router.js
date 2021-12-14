@@ -10,19 +10,19 @@ const Router = () => {
         <div>
             <BrowserRouter>
                 <Switch>
-                    <Route>
-                        <LoginPage/>
+                    <Route exact path={"/login"}>
+                        <LoginPage />
                     </Route>
-                    <Route>
+                    <Route exact path={"/adicionar-receita"}>
                         <AddRecipesPage/>
                     </Route>
-                    <Route>
+                    <Route exact path={"/"}>
                         <RecipesListPage/>
                     </Route>
-                    <Route>
+                    <Route exact path={"/detalhe/:id"}>
                         <RecipeDetailPage/>
                     </Route>
-                    <Route>
+                    <Route exact path={"/cadastro"}>
                         <SignUpPage/>
                     </Route>
                     <Route>
