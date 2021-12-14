@@ -1,10 +1,69 @@
 import react from 'react';
+import { ButtonSignUp, ImgLogin, InputContainer, ScreenContainer } from './styled';
+import img from '../../assets/img-cooking.jpg'
+import { Button, TextField } from '@mui/material';
+import useForm from '../../hooks/useForm'
+import { useHistory } from 'react-router-dom';
+import { goToSignUp } from '../../routes/coordinator'
 
 const LoginPage = () => {
-    return(
-        <div>
-            <h1>LoginPage</h1>
-        </div>
+    const [form, onChange, clear] = useForm({ email: "", password: "" })
+
+    const onSubmitLogin = (e) => {
+        e.preventDefault()
+    }
+
+    const history = useHistory()
+
+    return (
+        <ScreenContainer>
+            <ImgLogin src={img} />
+            <h1>Login</h1>
+            <InputContainer>
+                <form onSubmit={onSubmitLogin}>
+                    <TextField id="filled-basic"
+                        label="E-mail"
+                        variant="filled"
+                        fullWidth
+                        margin={'normal'}
+                        name={"email"}
+                        inputProps={form.email}
+                        onChange={onChange}
+                        required
+                        type={"email"}
+                    />
+                    <TextField id="filled-basic"
+                        label="Senha"
+                        variant="filled"
+                        fullWidth
+                        margin={'normal'}
+                        name={"password"}
+                        inputProps={form.password}
+                        onChange={onChange}
+                        required
+                        type={"password"}
+                    />
+                    <Button type={"submit"}
+                        fullWidth
+                        variant={"contained"}
+                        margin={'normal'}
+                    >
+                        Login
+                    </Button>
+                </form>
+            </InputContainer>
+            <ButtonSignUp>
+                <Button 
+                    onClick={() => goToSignUp(history)}
+                    type={"submit"}
+                    fullWidth
+                    variant={"text"}
+                    margin={'normal'}
+                >
+                    Cadastre-se aqui!
+                </Button>
+            </ButtonSignUp>
+        </ScreenContainer>
     )
 }
 
