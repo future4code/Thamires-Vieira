@@ -1,4 +1,5 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Header from '../components/Header/Header';
 import AddRecipesPage from '../pages/AddRecipesPage/AddRecipesPage';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
@@ -9,24 +10,25 @@ const Router = () => {
     return (
         <div>
             <BrowserRouter>
+                <Header />
                 <Switch>
                     <Route exact path={"/login"}>
                         <LoginPage />
                     </Route>
                     <Route exact path={"/adicionar-receita"}>
-                        <AddRecipesPage/>
+                        <AddRecipesPage />
                     </Route>
                     <Route exact path={"/"}>
-                        <RecipesListPage/>
+                        <RecipesListPage />
                     </Route>
                     <Route exact path={"/detalhe/:id"}>
-                        <RecipeDetailPage/>
+                        <RecipeDetailPage />
                     </Route>
                     <Route exact path={"/cadastro"}>
-                        <SignUpPage/>
+                        <SignUpPage />
                     </Route>
                     <Route>
-                       <ErrorPage /> 
+                        <ErrorPage />
                     </Route>
                 </Switch>
             </BrowserRouter>
