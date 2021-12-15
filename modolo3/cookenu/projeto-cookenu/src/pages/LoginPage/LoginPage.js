@@ -1,4 +1,3 @@
-import react from 'react';
 import { ButtonSignUp, ImgLogin, InputContainer, ScreenContainer } from './styled';
 import img from '../../assets/img-cooking.jpg'
 import { Button, TextField } from '@mui/material';
@@ -14,7 +13,7 @@ const LoginPage = () => {
     }
 
     const history = useHistory()
-
+    
     return (
         <ScreenContainer>
             <ImgLogin src={img} />
@@ -27,7 +26,7 @@ const LoginPage = () => {
                         fullWidth
                         margin={'normal'}
                         name={"email"}
-                        inputProps={form.email}
+                        value={form.email}
                         onChange={onChange}
                         required
                         type={"email"}
@@ -38,7 +37,7 @@ const LoginPage = () => {
                         fullWidth
                         margin={'normal'}
                         name={"password"}
-                        inputProps={form.password}
+                        value={form.password}
                         onChange={onChange}
                         required
                         type={"password"}
