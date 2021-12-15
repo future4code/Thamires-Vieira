@@ -4,16 +4,23 @@ import { Button, TextField } from '@mui/material';
 import useForm from '../../hooks/useForm'
 import { useHistory } from 'react-router-dom';
 import { goToSignUp } from '../../routes/coordinator'
+import { login } from '../../services/user';
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
+
+
 
 const LoginPage = () => {
+    useUnprotectedPage()
     const [form, onChange, clear] = useForm({ email: "", password: "" })
+    const history = useHistory()
 
     const onSubmitLogin = (e) => {
         e.preventDefault()
+        login(form, clear, history)
     }
 
-    const history = useHistory()
     
+
     return (
         <ScreenContainer>
             <ImgLogin src={img} />
