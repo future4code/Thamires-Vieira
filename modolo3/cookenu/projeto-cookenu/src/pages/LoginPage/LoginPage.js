@@ -9,14 +9,14 @@ import useUnprotectedPage from '../../hooks/useUnprotectedPage';
 
 
 
-const LoginPage = () => {
+const LoginPage = ({buttonText, setButtonText}) => {
     useUnprotectedPage()
     const [form, onChange, clear] = useForm({ email: "", password: "" })
     const history = useHistory()
 
     const onSubmitLogin = (e) => {
         e.preventDefault()
-        login(form, clear, history)
+        login(form, clear, history, setButtonText)
     }
 
     
@@ -25,7 +25,7 @@ const LoginPage = () => {
         <ScreenContainer>
             <ImgLogin src={img} />
             <h1>Login</h1>
-            <InputContainer>
+            <InputContainer buttonText={buttonText} setButtonText={setButtonText}>
                 <form onSubmit={onSubmitLogin}>
                     <TextField id="filled-basic"
                         label="E-mail"

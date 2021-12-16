@@ -5,13 +5,31 @@ import { StyledToolbar } from './styled';
 import { goToLogin, goToRecipesList } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
 
-const Header = () => {
+
+const Header = ({buttonText, setButtonText}) => {
     const history = useHistory()
-  return (
+    const token = localStorage.getItem("token")
+    
+  
+    const logout = () => {
+      localStorage.removeItem("token")
+    }
+
+    const buttonAction = () => {
+      if (token){
+        logout()
+        setButtonText("Login")
+        goToLogin(history)
+      }else {
+        goToLogin(history)
+      }
+    }
+
+    return (
       <AppBar position="static">
         <StyledToolbar>
           <Button onClick={() => goToRecipesList(history)} color="inherit">Cookenu</Button>
-          <Button onClick={() => goToLogin(history)} color="inherit">Login</Button>
+          <Button onClick={() => buttonAction()} color="inherit">{buttonText}</Button>
         </StyledToolbar>
       </AppBar>
   );
