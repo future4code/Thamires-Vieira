@@ -1,15 +1,42 @@
-import { Button } from '@mui/material';
 import useProtectedPage from '../../hooks/useProtectedPage';
+import useRequestData from '../../hooks/useRequestData';
+import RecipeCard from '../../RecipeCard/RecipeCard';
+import { ScreenList, AddButton } from './styled';
+import { BASE_URL } from '../../constants/urls'
+import { Add } from '@material-ui/icons';
+import { goToAddRecipes } from '../../routes/coordinator';
+import { useHistory } from 'react-router';
 
 
 const RecipesListPage = () => {
     useProtectedPage()
+    const history = useHistory()
 
-    return(
-        <div>
-            <h1>RecipesListPage</h1>
-            <Button variant="outlined" color="primary">Clique aqui!</Button>
-        </div>
+    const onClickCard = () => {
+
+    }
+
+    const recipes = useRequestData([], `${BASE_URL}/recipe/feed`)
+    const recipesList = recipes.map((recipe) => {
+        return (
+            <RecipeCard
+                key={recipe.id}
+                title={recipe.title}
+                image={recipe.image}
+                onClick={() => onClickCard}
+            />)
+    })
+
+    return (
+        <ScreenList>
+            {recipesList}
+            <AddButton
+                color={'primary'}
+                onClick={() => goToAddRecipes(history)}
+            >
+                <Add />
+            </AddButton>
+        </ScreenList>
     )
 }
 
