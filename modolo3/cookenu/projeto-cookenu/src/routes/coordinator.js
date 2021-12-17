@@ -10,9 +10,9 @@ export const goToAddRecipes = (history) => {
     history.push("/adicionar-receita")
 }
 
-// export const goToRecipeDatail = (history) => {
-//     history.push(`/detalhe/${id}`)
-// }
+export const goToRecipeDatail = (history, id) => {
+    history.push(`/detalhe/${id}`)
+}
 
 export const goToRecipesList = (history) => {
     history.push("/")

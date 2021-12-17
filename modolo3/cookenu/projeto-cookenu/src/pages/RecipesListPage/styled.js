@@ -9,6 +9,7 @@ export const ScreenList = styled.div`
     flex-wrap: wrap;
     margin: 30px;
     justify-content: space-between;
+    align-items: center;
 `
 export const AddButton = styled(Fab)`
     position: fixed;
