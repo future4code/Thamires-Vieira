@@ -1,10 +1,18 @@
+import Main from "./components/Main/Main";
+import ResetButton from "./components/ResetButton/ResetButton";
+import styled from "styled-components";
 
+const GlobalStyle = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 function App() {
   return (
-    <div>
-      AstroMatch
-    </div>
+    <GlobalStyle>
+      <Main/>
+      <ResetButton />
+    </GlobalStyle>
   );
 }
 
