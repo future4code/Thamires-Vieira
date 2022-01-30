@@ -18,6 +18,30 @@ app.get("/users", (req: Request, res: Response) => {
 
 })
 
+app.get("users/balance",(req: Request, res: Response) => {
+  let errorCode = 40
+
+  try {
+    const {name, document} = req.body
+    const findUser = users.find((user)=>{user.name === req.body.name})
+    const findDocument = users.find((user)=>{user.document === req.body.document}) 
+
+    if(!findDocument){
+      errorCode = 402
+      throw new Error ("Erro ao encontrar: Revise o numero do documento")
+    }
+    if(!findUser){
+      errorCode = 402
+      throw new Error ("Erro ao encontrar: Revise o nome do usuário")
+    }
+    if(findUser && findDocument){
+      res.status(200).send()
+    }
+
+  } catch (error: any) {
+    res.status(errorCode).send({message: error.message})
+  }
+})
 
 app.post("/users/create-account", (req: Request, res: Response) => {
   let codeError = 400
