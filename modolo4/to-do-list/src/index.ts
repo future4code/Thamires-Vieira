@@ -60,7 +60,9 @@ app.get("/user-all", async (req: Request, res: Response): Promise<void> => {
 })
 
 // Exercício 5 - Pegar Tarefa
-
+app.get("/task/:id", async (req: Request, res: Response): Promise<void> => {
+    
+})
 
 // Exercício 1 - Criar usuário
 app.post("/user", async (req: Request, res: Response): Promise<void> => {
