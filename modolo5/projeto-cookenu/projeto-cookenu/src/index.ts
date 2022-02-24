@@ -1,18 +1,18 @@
-import express, { Request, Response } from "express";
-import dotenv from "dotenv";
-import { AddressInfo } from "net";
+import app from "./app"
+import { signup } from "./enpoints/signup"
 
-dotenv.config();
 
-const app = express();
 
-app.use(express.json());
+app.get("/user/profile") 
+// app.get("/user/profile", getOwnProfile)
+// app.get("/user/:id", getUserProfile)
+// app.get("/recipe/:id", getRecipe)
+// app.get("/user/feed", getUserFeed)
 
-const server = app.listen(process.env.PORT || 3003, () => {
-  if (server) {
-    const address = server.address() as AddressInfo;
-    console.log(`Server is running in http://localhost:${address.port}`);
-  } else {
-    console.error(`Failure upon starting server.`);
-  }
-});
+app.post("/signup", signup)
+// app.post("/login", login)
+// app.post("/recipe", createRecipe)
+// app.post("/user/follow", followUser)
+// app.post("/user/unfollow", unfollowUser)
+
+ 
