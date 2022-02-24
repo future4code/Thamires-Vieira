@@ -19,9 +19,9 @@ export async function signup(req: Request, res: Response): Promise<void> {
         if (password.length <= 6 || !password) throw new Error("Informe uma senha com mais de 6 caracteres ou uma senha válida")
 
         const userDataBase = new UserDatabase()
-        const user = userDataBase.findUserByEmail(email)
+        const user = await userDataBase.findUserByEmail(email)
 
-        if (await user) {
+        if (user) {
             res.status(409).send('Email já cadastrado')
         }
 
