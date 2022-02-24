@@ -7,7 +7,6 @@ export interface AuthenticationData {
   role: USER_ROLES
 }
 
-//gera o token
 export class Authenticator {
   public generate(input: AuthenticationData): string {
     const token = jwt.sign(input, process.env.JWT_KEY as string, {
@@ -15,7 +14,7 @@ export class Authenticator {
     })
     return token
   }
-//verifica se o token é válido
+
   public getTokenData(token: string): AuthenticationData {
     const data = jwt.verify(token, process.env.JWT_KEY as string)
     return data as AuthenticationData
