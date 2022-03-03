@@ -84,5 +84,4 @@ class Bank {
     constructor(accounts: UserAccount[]) {
         this.accounts = accounts;
     }
-
-}
+ 
