@@ -67,11 +67,9 @@ class UserAccount {
     }
     insertTransaction(transaction: Transaction) {
         this.transactions.push(transaction)
-    }
-}
-
-const pessoa = new UserAccount("406.925.178-56", "Thamires", 29)
-
+    }}
+ = new UserAccount("406.925.178-56", "Thamires", 29)
+=>>const pes
 
 
 //Exercício 3
@@ -84,4 +82,4 @@ class Bank {
     constructor(accounts: UserAccount[]) {
         this.accounts = accounts;
     }
- 
+<>>>>>
