@@ -68,9 +68,6 @@ class UserAccount {
     insertTransaction(transaction: Transaction) {
         this.transactions.push(transaction)
     }
-    public getCpf(): string {
-        return this.cpf
-    }
 }
 
 const pessoa = new UserAccount("406.925.178-56", "Thamires", 29)
@@ -87,5 +84,4 @@ class Bank {
     constructor(accounts: UserAccount[]) {
         this.accounts = accounts;
     }
-
-}
+ 
