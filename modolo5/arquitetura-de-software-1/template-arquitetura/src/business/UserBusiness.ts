@@ -72,21 +72,4 @@ export class UserBusinness {
 
         return users
     }
-
-    deleteUser = async (token: string, id: string): Promise<void> => {
-        if (!token) {
-            throw new Error("Para realizar essa operação é necessário ter token de autorização.")
-        }
-        const verifyToken = authentication.getTokenData(token)
-
-        const user = await userDataBase.getUserbyId(verifyToken.id)
-
-        const userRole = user.getRole()
-
-        if (userRole !== "ADMIN") {
-            throw new Error("Somente usuários com perfil de ADMIN podem realizar essa requisição");
-        }
-
-        await userDataBase.deleteUserById(id)
-    }
 }

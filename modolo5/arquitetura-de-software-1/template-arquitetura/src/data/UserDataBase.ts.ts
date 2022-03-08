@@ -46,18 +46,7 @@ export class UserDataBase extends BaseDataBase {
         }
     }
 
-    deleteUserById = async (id: string): Promise<void> => {
-
-        try {
-            await BaseDataBase.connection('User_Arq')
-                .delete()
-                .where('User_Arq.id', `${id}`)
-
-        } catch (error: any) {
-            throw new Error(error.sqlMessage || error.message)
-        }
-    }
-
+    
     getUserbyId = async (id: string): Promise<User> => {
         try {
             const [user] = await BaseDataBase.connection('User_Arq')
