@@ -24,7 +24,7 @@ export class UserController {
                     break
                 default:
                     res.statusCode = 500
-                    error.message = "Um erro inesperado ocorreu"
+                    error.message = "Erro inesperado"
             }
             res.send(error.message)
         }
