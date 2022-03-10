@@ -1,13 +1,12 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
+import { app } from "./app";
+import UserBusiness from "./business/UserBusiness";
+import UserController from "./controller/UserController";
+import UserData from "./data/UserData";
 
-dotenv.config()
-const app = express()
+const userController = new UserController(
+    new UserBusiness(
+        new UserData()
+    )
+)
 
-app.use(express.json())
-app.use(cors())
-
-app.listen(3003, () => {
-    console.log('Server is running on port 3003')
-})
+app.post("/user/signup", userController.signup)
