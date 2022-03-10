@@ -1,5 +1,9 @@
 import * as jwt from 'jsonwebtoken';
 import { authenticationData } from '../model/User';
+import dotenv from 'dotenv'
+
+dotenv.config()
+const expiresIn = "24min"
 
 export class Authenticator {
     generateToken = (
@@ -9,7 +13,7 @@ export class Authenticator {
             payload,
             process.env.JWT_KEY as string,
             {
-                // expiressIn: "24min"
+               expiresIn 
             }
         )
     }

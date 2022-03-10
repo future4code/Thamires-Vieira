@@ -4,34 +4,34 @@ export type authenticationData = {
 
 export default class User {
     constructor(
-        private _id: string,
-        private _name: string,
-        private _email: string,
-        private _password: string
+        private id: string,
+        private name: string,
+        private email: string,
+        private password: string
     ) { }
 
-    public get password(): string {
-        return this._password;
+    public getPassword(): string {
+        return this.password;
     }
-    public set password(value: string) {
-        this._password = value;
+    public setPassword(value: string) {
+        this.password = value;
     }
-    public get email(): string {
-        return this._email;
+    public getEmail(): string {
+        return this.email;
     }
-    public set email(value: string) {
-        this._email = value;
+    public setEmail(value: string) {
+        this.email = value;
     }
-    public get name(): string {
-        return this._name;
+    public getName(): string {
+        return this.name;
     }
-    public set name(value: string) {
-        this._name = value;
+    public setName(value: string) {
+        this.name = value;
     }
-    public get id(): string {
-        return this._id;
+    public getid(): string {
+        return this.id;
     }
-    public set id(value: string) {
-        this._id = value;
+    public setId(value: string) {
+        this.id = value;
     }  
 }
