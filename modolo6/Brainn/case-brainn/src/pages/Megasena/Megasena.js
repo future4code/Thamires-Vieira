@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 import SelectBar from "../../components/SelectBar";
 import moment from 'moment';
-import { Ball, Concurso, Conteiner, ConteinerInfos, InfoCaixa, NumberConteiner, SideBar } from "./styled";
+import { Ball, Concurso, Container,  ContainerInfos,  InfoCaixa,  NumberContainer,  SideBar } from "./styled";
 
 
 const Megasena = () => {
@@ -58,28 +58,28 @@ const Megasena = () => {
   const dataFormatada = moment(concursos.data, "YYYY-MM-DD").format("DD/MM/YYYY");
 
   return (
-    <Conteiner>
+    <Container>
         <SideBar>
         <SelectBar />
           <Concurso>MEGA-SENA</Concurso>
-          <ConteinerInfos>
+          <ContainerInfos>
             <div>Concurso:
               {concursos.id}</div>
             <div >Data:{dataFormatada}</div>
-          </ConteinerInfos>
-          {concursos.numeros && <NumberConteiner>
+          </ContainerInfos>
+          {concursos.numeros && <NumberContainer>
             <Ball><p>{concursos.numeros[0]}</p></Ball>
             <Ball><p>{concursos.numeros[1]}</p></Ball>
             <Ball><p>{concursos.numeros[2]}</p></Ball>
             <Ball><p>{concursos.numeros[3]}</p></Ball>
             <Ball><p>{concursos.numeros[4]}</p></Ball>
             <Ball><p>{concursos.numeros[5]}</p></Ball>
-          </NumberConteiner>}
+          </NumberContainer>}
           <InfoCaixa>
             Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.
           </InfoCaixa>
         </SideBar>
-    </Conteiner>
+    </Container>
   )
 }
 

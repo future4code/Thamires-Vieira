@@ -17,7 +17,7 @@ left: 0%;
 right: 61.69%;
 top: 0%;
 bottom: 0%;
-background: #DD7AC6;
+background: #8666EF;
 text-align: center;
 font-family: 'Montserrat';
 `

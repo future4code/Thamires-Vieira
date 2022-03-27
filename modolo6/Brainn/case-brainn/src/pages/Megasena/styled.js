@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Conteiner = styled.div`
+export const Container = styled.div`
 display: grid;
 flex-wrap: column;
 font-family: 'Montserrat';
@@ -38,10 +38,10 @@ line-height: 37px;
 color: #FFFFFF;
 
 `
-export const NumberConteiner = styled.div`
+export const NumberContainer = styled.div`
 display: flex;
 `
-export const ConteinerInfos = styled.div`
+export const ContainerInfos = styled.div`
 position: absolute;
 left: 6%;
 right: 84.83%;
