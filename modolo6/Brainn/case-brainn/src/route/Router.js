@@ -16,8 +16,16 @@ const Router = () => {
         <div>
             <BrowserRouter>
                 <Switch>
+                <Route exact path='/'>
+                        <Megasena />
+                    </Route>
+
                     <Route exact path='/megasena'>
                         <Megasena />
+                    </Route>
+
+                    <Route exact path='/quina'>
+                        <Quina />
                     </Route>
 
                     <Route exact path='/lotofacil'>
@@ -28,17 +36,14 @@ const Router = () => {
                         <LotoMania />
                     </Route>
 
-                    <Route exact path='/quina'>
-                        <Quina />
+                    <Route exact path='/timemania'>
+                        <TimeMania />
                     </Route>
 
                     <Route exact path='/diadesorte'>
                         <DiaDeSorte />
                     </Route>
 
-                    <Route exact path='/timemania'>
-                        <TimeMania />
-                    </Route>
                     <Route>
                         <ErrorPage />
                     </Route>

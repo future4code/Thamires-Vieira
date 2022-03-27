@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import SelectBar from "../../components/SelectBar";
 import moment from 'moment';
 import { Ball, Concurso, Container, ContainerInfos, InfoCaixa, NumberContainer, SideBar } from "./styled";
-// import {Container} from './styled'
+
 
 const DiaDeSorte = () => {
   const [concursos, setConcursos] = useState([])

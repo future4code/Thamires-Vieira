@@ -36,9 +36,9 @@ const SelectBar = () => {
       <Select onChange={onChangeInput} >
         <option hidden>SELECIONE...</option>
         <option value={'/megasena'}>MEGASENA</option>
+        <option value={'/quina'}>QUINA</option>
         <option value={'/lotofacil'}>LOTOFACIL</option>
         <option value={'/lotomania'}>LOTOMANIA</option>
-        <option value={'/quina'}>QUINA</option>
         <option value={'/timemania'}>TIMEMANIA</option>
         <option value={'/diadesorte'}>DIA DE SORTE</option>
       </Select>
