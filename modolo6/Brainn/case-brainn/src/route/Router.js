@@ -1,7 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import DiaDeSorte from '../pages/DiaDeSorte/DiaDeSorte'
-import ErrorPage from '../pages/ErrorPage/ErrorPage'
+import HomePage from '../pages/HomePage/HomePage'
+import ErrorPage from '../pages/HomePage/HomePage'
 import LotoFacil from '../pages/LotoFacil/LotoFacil'
 import LotoMania from '../pages/LotoMania/LotoMania'
 import Megasena from '../pages/Megasena/Megasena'
@@ -17,7 +18,7 @@ const Router = () => {
             <BrowserRouter>
                 <Switch>
                 <Route exact path='/'>
-                        <Megasena />
+                        <HomePage />
                     </Route>
 
                     <Route exact path='/megasena'>
@@ -45,7 +46,7 @@ const Router = () => {
                     </Route>
 
                     <Route>
-                        <ErrorPage />
+                        <h1>Página não encontrada!</h1>
                     </Route>
                 </Switch>
             </BrowserRouter>
