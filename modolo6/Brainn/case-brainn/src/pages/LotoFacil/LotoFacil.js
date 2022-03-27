@@ -19,7 +19,7 @@ const LotoFacil = () => {
   }
 
   const getLoteriasConcurso = () => {
-    axios.get('https://brainn-api-loterias.herokuapp.com/api/v1/loterias-concursos')
+    axios.get('https://brainn-api-loterias.herokuapp.com/api/v1/loterias-concursos/2')
 
       .then((res) => {
         setLoteriasConcursos(res.data)

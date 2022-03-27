@@ -7,7 +7,7 @@ left: 6%;
 right: 80.51%;
 top: 8.52%;
 bottom: 87.3%;
-width:10vw;
+width:8vw;
 
 filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.05));
 

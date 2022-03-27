@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import axios from 'axios'
-import { useState } from 'react'
-import { useEffect } from 'react'
 import { Select } from "./syled"
+
 
 
 const SelectBar = () => {
@@ -24,7 +24,6 @@ const SelectBar = () => {
   }, [])
 
 
-
   const history = useHistory()
 
   const onChangeInput = (event) => {
@@ -34,15 +33,15 @@ const SelectBar = () => {
 
   return (
     <div>
-
-    <Select onChange={onChangeInput} > 
-      <option value={'/megasena'}>MEGASENA</option>
-      <option value={'/lotofacil'}>LOTOFACIL</option>
-      <option value={'/lotomania'}>LOTOMANIA</option>
-      <option value={'/quina'}>QUINA</option>
-      <option value={'/timemania'}>TIMEMANIA</option>
-      <option value={'/diadesorte'}>DIA DE SORTE</option>
-    </Select>
+      <Select onChange={onChangeInput} >
+        <option hidden>SELECIONE...</option>
+        <option value={'/megasena'}>MEGASENA</option>
+        <option value={'/lotofacil'}>LOTOFACIL</option>
+        <option value={'/lotomania'}>LOTOMANIA</option>
+        <option value={'/quina'}>QUINA</option>
+        <option value={'/timemania'}>TIMEMANIA</option>
+        <option value={'/diadesorte'}>DIA DE SORTE</option>
+      </Select>
     </div>
   )
 }
