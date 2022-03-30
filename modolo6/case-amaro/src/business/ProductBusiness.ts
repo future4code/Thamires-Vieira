@@ -1,40 +1,29 @@
-import { UserInputDTO, LoginInputDTO } from "../model/Product";
-import { UserDatabase } from "../data/ProductDatabase";
+import { ProductDatabase } from "../data/ProductDatabase";
+import { Product, Tags } from "../model/Product";
 import { IdGenerator } from "../services/IdGenerator";
-import { HashManager } from "../services/HashManager";
-import { Authenticator } from "../services/Authenticator";
 
 export class ProductBusiness {
 
-    async createProduct(user: UserInputDTO) {
+    createProduct = async (
+        name: string,
+        tags: string
+    ): Promise<void> => {
 
-        const idGenerator = new IdGenerator();
-        const id = idGenerator.generate();
+        if (!name || !tags) {
+            throw new Error("Preencha todos os campos")
+        }
 
-        const hashManager = new HashManager();
-        const hashPassword = await hashManager.hash(user.password);
+        const tagsToDB: string = JSON.stringify(tags)
 
-        const userDatabase = new UserDatabase();
-        await userDatabase.createUser(id, user.email);
+        const idGenerator = new IdGenerator()
+        const productId = idGenerator.generate()
+        const tagsId = idGenerator.generate()
 
-        const authenticator = new Authenticator();
-        const accessToken = authenticator.generateToken({ id });
+        const newProduct = new Product(productId, name)
 
-        return accessToken;
+        const newTags = new Tags(tagsId, tagsToDB, productId)
+
+        await new ProductDatabase().createProduct(newProduct, newTags)
     }
 
-    async getUserByEmail(user: LoginInputDTO) {
-
-        const userDatabase = new UserDatabase();
-        const userFromDB = await userDatabase.getUserByEmail(user.email);
-
-        const hashManager = new HashManager();
-
-        const authenticator = new Authenticator();
-        const accessToken = authenticator.generateToken({ id: userFromDB.getId() });
-
-     
-
-        return accessToken;
-    }
 }

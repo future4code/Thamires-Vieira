@@ -1,33 +1,29 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { Product } from "../model/Product";
+import { Product, Tags } from "../model/Product";
 
 export class ProductDatabase extends BaseDatabase {
+  protected table_name = {
+    products: "products",
+    tags: "tags"
+  }
+  createProduct = async (
+    product: Product,
+    tags: Tags
+  ): Promise<void> => {
 
-  private static TABLE_NAME = "amaro_products";
-
-  public async createproduct(
-    id: string,
-    name: string,
-  ): Promise<void> {
     try {
       await this.getConnection()
-        .insert({
-          id,
-          name,
-        })
-        .into(ProductDatabase.TABLE_NAME);
-    } catch (error:any) {
-      throw new Error(error.sqlMessage || error.message);
+        .insert(product)
+        .into(this.table_name.products)
+
+      await this.getConnection()
+        .insert(tags)
+        .into(this.table_name.tags)
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error( error.message)
+      }
     }
-  }
-
-  public async getUserByEmail(email: string): Promise<Product> {
-    const result = await this.getConnection()
-      .select("*")
-      .from(ProductDatabase.TABLE_NAME)
-      .where({ email });
-
-    return Product.toProductModel(result[0]);
   }
 
 }

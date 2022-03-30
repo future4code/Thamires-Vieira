@@ -2,9 +2,9 @@ import express from "express";
 import { ProductController } from "../controller/ProductController";
 
 
-export const userRouter = express.Router();
+export const productRouter = express.Router();
 
 const productController = new ProductController();
 
-userRouter.post("/signup", productController.signup);
-userRouter.get("/products", productController.login);
+productRouter.post("/create", productController.createProduct);
+productRouter.get("/search", /*productController.getSearchProduct*/)
