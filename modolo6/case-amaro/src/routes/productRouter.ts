@@ -7,4 +7,4 @@ export const productRouter = express.Router();
 const productController = new ProductController();
 
 productRouter.post("/create", productController.createProduct);
-productRouter.get("/search", /*productController.getSearchProduct*/)
+productRouter.get("/search", productController.getSearchProduct)

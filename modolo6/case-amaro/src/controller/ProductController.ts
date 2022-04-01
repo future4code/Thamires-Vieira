@@ -24,5 +24,26 @@ export class ProductController {
         await BaseDatabase.destroyConnection();
     }
 
-    
+    getSearchProduct = async (
+        req: Request,
+        res: Response
+    ): Promise<void> => {
+        try {
+
+            const input = (req.query.id || req.query.name || req.query.tag) as string
+
+            const product = await new ProductBusiness().getSearchProduct(input)
+
+            res.status(200).send(product)
+
+        } catch (error) {
+            if (error instanceof Error) {
+                res.status(400).send({ error: error.message })
+            }
+        }
+
+        await BaseDatabase.destroyConnection();
+
+
+    }
 }

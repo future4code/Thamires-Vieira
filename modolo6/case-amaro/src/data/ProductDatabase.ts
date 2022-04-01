@@ -6,6 +6,7 @@ export class ProductDatabase extends BaseDatabase {
     products: "products",
     tags: "tags"
   }
+
   createProduct = async (
     product: Product,
     tags: Tags
@@ -25,5 +26,16 @@ export class ProductDatabase extends BaseDatabase {
       }
     }
   }
+
+  getSearchProduct = async (
+    query: string
+) => {
+
+    const result = await this.getConnection()
+        
+
+    return result
+}
+
 
 }

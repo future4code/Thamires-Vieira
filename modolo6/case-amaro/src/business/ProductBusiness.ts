@@ -26,4 +26,14 @@ export class ProductBusiness {
         await new ProductDatabase().createProduct(newProduct, newTags)
     }
 
+    getSearchProduct = async (
+        query: string
+    ) => {
+        
+        const product = await new ProductDatabase().getSearchProduct(query)
+
+
+        return product
+    }
+
 }
