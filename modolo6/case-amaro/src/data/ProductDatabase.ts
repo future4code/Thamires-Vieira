@@ -32,7 +32,14 @@ export class ProductDatabase extends BaseDatabase {
 ) => {
 
     const result = await this.getConnection()
-        
+        .select(`${this.table_name.products}.id`)
+        .select(`${this.table_name.products}.name`)
+        .select(`${this.table_name.tags}.tags`)
+        .from(this.table_name.products)
+        .leftJoin(this.table_name.tags, "products.id", "tags.product_id")
+        .where("tags.tags", `%${query}%`)
+        .orWhere({ "products.id": query })
+        .orWhere({ "products.name": query })
 
     return result
 }
