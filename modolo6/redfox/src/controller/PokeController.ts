@@ -8,10 +8,13 @@ export class PokeController {
         try {
 
             const body = {
-                email: req.body.email,
                 name: req.body.name,
-                password: req.body.password,
-                role: req.body.role
+                pokedex_number: req.body.pokedex_number,
+                generation: req.body.generation,
+                evolution_stage: req.body.evolution_stage,
+                type: req.body.type,
+                atack: req.body.atack,
+                defense: req.body.defense
             }
 
             const pokeBusiness = new PokeBusiness();

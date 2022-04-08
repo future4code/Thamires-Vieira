@@ -2,7 +2,7 @@ export class Pokemon {
     constructor(
         private id: number,
         private name: string,
-        private pokedexNumber: number,
+        private pokedex_number: number,
         private generation: number,
         private evolution_stage: number,
         private type: string,
@@ -20,7 +20,27 @@ export class Pokemon {
     }
 
     public getPokedexNumber(): number {
-        return this.pokedexNumber
+        return this.pokedex_number
+    }
+
+    public getGeneration() {
+        return this.generation
     }
   
+    public getEvolutionStage() {
+       return this.evolution_stage 
+    }
+
+    public getType() {
+        return this.type
+    }
+
+     public getAttack() {
+        return this.atack
+    }
+
+     public getDefense() {
+        return this.defense 
+    }
+
 }
