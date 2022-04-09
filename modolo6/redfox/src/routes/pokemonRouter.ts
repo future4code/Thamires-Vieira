@@ -13,4 +13,4 @@ export const pokeRouter = express.Router();
 
 
 pokeRouter.get("/all-poke", pokeController.allPoke);
-pokeRouter.get("/id", pokeController.pokeById);
+pokeRouter.get("/:id", pokeController.pokeById);
