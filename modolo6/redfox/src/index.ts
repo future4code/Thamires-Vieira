@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/pokemons", pokeRouter);
+app.use("/pokemon", pokeRouter);
 
 const server = app.listen(3000, () => {
     if (server) {

@@ -3,30 +3,27 @@ import { PokeBusiness } from "../business/PokeBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
 
 
+
 export class PokeController {
-    async addPoke(req: Request, res: Response) {
+
+    async getAllPoke(req: Request, res: Response) {
         try {
+            const poke = ""
 
-            const body = {
-                name: req.body.name,
-                pokedex_number: req.body.pokedex_number,
-                generation: req.body.generation,
-                evolution_stage: req.body.evolution_stage,
-                type: req.body.type,
-                atack: req.body.atack,
-                defense: req.body.defense
-            }
+            const result = await PokeBusiness.getAllPoke(poke); 
 
-            const pokeBusiness = new PokeBusiness();
             
+            res.status(200).send(result);
+        } catch (error) {
 
-
-        } catch (error:any) {
-            res.status(400).send({ error: error.message });
+            if (error instanceof Error) {
+                res.status(400).send(error.message);
+            } else {
+                res.send({ message: "Erro ao coletar pokemon" })
+            }
         }
 
         await BaseDatabase.destroyConnection();
     }
-
 
 }

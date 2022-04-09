@@ -2,15 +2,18 @@ import { PokeDatabase } from "../data/PokeDatabase";
 
 
 export class PokeBusiness {
+    static getAllPoke(test: string) {
+        throw new Error("Method not implemented.");
+    }
     constructor(
         private pokeDatabase: PokeDatabase,
     ) {
 
     }
-    public async getAllPoke(test: string) {
+    public async getAllPoke(poke: string) {
         try {
 
-            const pokemons = await this.pokeDatabase.getAllPoke(test);
+            const pokemons = await this.pokeDatabase.getAllPoke(poke);
 
             if (!pokemons || pokemons.length === 0) {
 

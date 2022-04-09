@@ -5,7 +5,7 @@ export class PokeDatabase extends BaseDatabase {
 
   private static TABLE_NAME = "pokemons";
 
-  public async getAllPoke(test:string): Promise<void|any> {
+  public async getAllPoke(poke:string): Promise<void|any> {
     try {
        const result = await this.getConnection().select("*").from(PokeDatabase.TABLE_NAME);
       

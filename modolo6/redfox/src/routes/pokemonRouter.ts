@@ -6,4 +6,4 @@ export const pokeRouter = express.Router();
 
 const pokeController = new PokeController();
 
-// userRouter.post("/add", pokemonController.add);
+pokeRouter.get("/all-poke", pokeController.getAllPoke);
