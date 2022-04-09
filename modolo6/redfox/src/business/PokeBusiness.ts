@@ -3,28 +3,24 @@ import { Pokemon } from "../model/Pokemon";
 
 
 export class PokeBusiness {
-    static getPokeById(arg0: string) {
-        throw new Error("Method not implemented.");
-    }
-    static getAllPoke(poke: string) {
-        throw new Error("Method not implemented.");
-    }
+   
     constructor(
         private pokeDatabase: PokeDatabase,
     ) {
 
     }
-    public async getAllPoke(poke: string) {
+
+    public async getAllPoke(poke?: string) {
         try {
 
-            const pokemons = await this.pokeDatabase.getAllPoke(poke);
+            const pokemon = await this.pokeDatabase.getAllPoke();
 
-            if (!pokemons || pokemons.length === 0) {
+            if (!pokemon || pokemon.length === 0) {
 
                 throw new Error("Erro ao retornar lista de pokemons");
             }
 
-            return (pokemons);
+            return (pokemon);
         } catch (error) {
 
             if (error instanceof Error) {

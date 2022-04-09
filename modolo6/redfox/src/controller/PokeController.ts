@@ -1,21 +1,25 @@
 import { Request, Response } from "express";
 import { PokeBusiness } from "../business/PokeBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
+import { PokeDatabase } from "../data/PokeDatabase";
 
 
 
 
 export class PokeController {
+    constructor(
+        private pokeBusiness: PokeBusiness,
+    ) {
 
-    getAllPoke = async (req: Request, res: Response) => {
+    }
+    allPoke = async (req: Request, res: Response) => {
+        const poke = "" as string
         try {
-            const poke = ""
-
-            const result = await PokeBusiness
-                .getAllPoke(poke as string);
+        
+            const result = await this.pokeBusiness.getAllPoke(poke);
 
 
-            res.status(200).send(result);
+                res.send({result})
         } catch (error) {
 
             if (error instanceof Error) {
@@ -29,15 +33,18 @@ export class PokeController {
     }
 
 
-    getPokeById = async (req: Request, res: Response) => {
+    pokeById = async (req: Request, res: Response) => {
         try {
             const { id } = req.params
-            const result = await PokeBusiness
-                .getPokeById(id as string)
+            const result = await this.pokeBusiness.getPokeById(id as string)
 
             res.status(200).send({ result })
-        } catch (error: any) {
-            res.status(400).send(error.message);
+        } catch (error) {
+            if (error instanceof Error) {
+                res.status(400).send(error.message);
+            } else {
+                res.send({ message: "Erro ao coletar pokemon" })
+            }
         }
         await BaseDatabase.destroyConnection();
     }
