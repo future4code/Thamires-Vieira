@@ -1,4 +1,5 @@
 import { PokeDatabase } from "../data/PokeDatabase";
+import { Pokemon } from "../model/Pokemon";
 
 
 export class PokeBusiness {
@@ -30,4 +31,17 @@ export class PokeBusiness {
             }
         }
     }
+
+    getPokeById = async(id:string):Promise<Pokemon> => {
+        try {
+          if(!id)
+          {throw new Error("Prencha o ID da Banda")}
+  
+          const getPoke:Pokemon = await new PokeDatabase().selectPokeById(id)
+          return getPoke
+  
+        } catch (error:any) {
+          throw new Error(error.message);
+        }
+      }
 }

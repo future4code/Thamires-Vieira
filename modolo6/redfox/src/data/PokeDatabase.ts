@@ -1,3 +1,4 @@
+import { Pokemon } from "../model/Pokemon";
 import { BaseDatabase } from "./BaseDatabase";
 
 
@@ -18,5 +19,18 @@ export class PokeDatabase extends BaseDatabase {
         }
     }
  }
+
+ public selectPokeById = async(id:string): Promise<Pokemon> => {
+  try {
+      const result = await this.getConnection()
+      .select("*")
+      .from(PokeDatabase.TABLE_NAME)
+      .where({id})
+      return result[0]
+
+  } catch (error: any) {
+      throw new Error(error.slqMessage || error.message)
+  }
+}
 
 }
