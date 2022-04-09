@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { PokeBusiness } from "../business/PokeBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
-import { PokeDatabase } from "../data/PokeDatabase";
+
 
 
 
@@ -12,7 +12,7 @@ export class PokeController {
             const poke = ""
 
             const result = await PokeBusiness
-                .getAllPoke(poke);
+                .getAllPoke(poke as string);
 
 
             res.status(200).send(result);
@@ -28,12 +28,12 @@ export class PokeController {
         await BaseDatabase.destroyConnection();
     }
 
-    
+
     getPokeById = async (req: Request, res: Response) => {
         try {
             const { id } = req.params
-            const result = await new PokeBusiness()
-                .getPokeById(id)
+            const result = await PokeBusiness
+                .getPokeById(id as string)
 
             res.status(200).send({ result })
         } catch (error: any) {

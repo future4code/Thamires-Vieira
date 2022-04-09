@@ -3,7 +3,10 @@ import { Pokemon } from "../model/Pokemon";
 
 
 export class PokeBusiness {
-    static getAllPoke(test: string) {
+    static getPokeById(arg0: string) {
+        throw new Error("Method not implemented.");
+    }
+    static getAllPoke(poke: string) {
         throw new Error("Method not implemented.");
     }
     constructor(
@@ -32,16 +35,19 @@ export class PokeBusiness {
         }
     }
 
-    getPokeById = async(id:string):Promise<Pokemon> => {
+    getPokeById = async (id: string): Promise<Pokemon> => {
         try {
-          if(!id)
-          {throw new Error("Prencha o ID da Banda")}
-  
-          const getPoke:Pokemon = await new PokeDatabase().selectPokeById(id)
-          return getPoke
-  
-        } catch (error:any) {
-          throw new Error(error.message);
+            if (!id) { throw new Error("Prencha o ID do Pokemon") }
+
+            const getPoke: Pokemon = await new PokeDatabase().selectPokeById(id)
+            return getPoke
+
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(error.message)
+            } else {
+                throw new Error("Ocorreu um erro.")
+            }
         }
-      }
+    }
 }

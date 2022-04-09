@@ -8,7 +8,9 @@ export class PokeDatabase extends BaseDatabase {
 
   public async getAllPoke(poke:string): Promise<void|any> {
     try {
-       const result = await this.getConnection().select("*").from(PokeDatabase.TABLE_NAME);
+       const result = await this.getConnection()
+       .select("*")
+       .from(PokeDatabase.TABLE_NAME);
       
 
        return result[0].map((res: any) => {
